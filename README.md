@@ -4,8 +4,6 @@
 
 ![astro-bento-portfolio | Bento-like Personal Porfolio Template](public/preview.png)
 
-To view a demo example, **[click here](https://sparkly-speculoos-0c9197.netlify.app/)**
-
 or my portfolio **[click here](https://gianmarcocavallo.com)**
 
 ## Features
@@ -14,7 +12,6 @@ or my portfolio **[click here](https://gianmarcocavallo.com)**
 - All in one page (almost)
 - Fully Responsive
 - Performances and SEO optimizations
-- Ready to be deployed on [Netlify](https://www.netlify.com/)
 - Blog
 - RSS support (your-domain/rss.xml)
 - Cool 3d globe
