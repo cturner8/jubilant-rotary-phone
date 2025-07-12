@@ -13,6 +13,9 @@ import svelte from "@astrojs/svelte";
 // https://astro.build/config
 export default defineConfig({
   site: "https://gianmarcocavallo.com/",
+  server: {
+    host: "127.0.0.1",
+  },
   integrations: [
     sitemap(),
     robotsTxt({
