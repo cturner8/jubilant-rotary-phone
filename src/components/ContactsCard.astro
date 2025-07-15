@@ -1,6 +1,6 @@
 ---
-import Card from "./Card/index.astro";
 import { LINKS } from "../lib/constants";
+import Card from "./Card/index.astro";
 ---
 
 <Card colSpan="md:col-span-1" rowSpan="md:row-span-4">
@@ -12,7 +12,7 @@ import { LINKS } from "../lib/constants";
     </header>
     <address class="flex flex-col mt-4">
       <h2 class="text-gray-500">Contact Details</h2>
-      <p>contact@gianmarcocavallo.com</p>
+      <p>{LINKS.email}</p>
       <p>Italy</p>
     </address>
     <div class="flex flex-col mt-4 w-fit">
@@ -23,12 +23,6 @@ import { LINKS } from "../lib/constants";
         </li>
         <li>
           <a href={LINKS.github} target="_blank">Github</a>
-        </li>
-        <li>
-          <a href={LINKS.medium} target="_blank">Medium</a>
-        </li>
-        <li>
-          <a href={LINKS.discord} target="_blank">Discord</a>
         </li>
       </ul>
     </div>
