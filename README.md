@@ -23,6 +23,7 @@ pnpm dev
 - replace favicon
 - replace me.webp
 - replace og-image.png
+- travel link
 - content
   - AboutMe.astro
   - ContactsCard.astro
