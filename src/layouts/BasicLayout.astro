@@ -4,7 +4,7 @@ import { LINKS } from "../lib/constants";
 interface Props {
   title: string;
   description: string;
-  page?: "blog"; // TODO: remove?
+  page?: "travel" | "blog"; // TODO: remove?
   slug?: string | undefined;
   pubDate?: string;
 }
@@ -15,29 +15,20 @@ const image = `${Astro.url.origin}/og-image.png`;
 const schema =
   page !== "blog"
     ? {
-        "@context": "http://schema.org",
+        "@context": "https://schema.org",
         "@type": "Person",
-        name: "Gianmarco",
+        name: "Cameron",
         url: Astro.url.origin,
         sameAs: [LINKS.linkedin, LINKS.github],
         image: `${Astro.url.origin}/og-image.png`,
-        jobTitle: "Freelance Frontend Developer",
-        worksFor: {
-          "@type": "Organization",
-          name: "Self-Employed",
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: "Italy",
-            addressCountry: "IT",
-          },
-        },
+        jobTitle: "Senior Software Engineer",
         nationality: {
           "@type": "Country",
-          name: "Italy",
+          name: "Scotland",
         },
       }
     : {
-        "@context": "http://schema.org",
+        "@context": "https://schema.org",
         "@type": "BlogPosting",
         mainEntityOfPage: {
           "@type": "WebPage",
@@ -48,13 +39,13 @@ const schema =
         image: `${Astro.url.origin}/og-image.png`, //TODO: dynamic
         author: {
           "@type": "Person",
-          name: "Gianmarco",
+          name: "Cameron",
           url: Astro.url.origin,
           sameAs: [LINKS.linkedin, LINKS.github],
         },
         publisher: {
           "@type": "Organization",
-          name: "Gianmarco",
+          name: "Cameron",
           logo: {
             "@type": "ImageObject",
             url: `${Astro.url.origin}/og-image.png`,

@@ -4,7 +4,6 @@ import { Image } from "astro:assets";
 import { LINKS } from "../lib/constants";
 import Button from "./Button.astro";
 import Card from "./Card/index.astro";
-import Tooltip from "./Tooltip/index";
 ---
 
 <Card colSpan="md:col-span-3" rowSpan="md:row-span-4">
@@ -13,9 +12,9 @@ import Tooltip from "./Tooltip/index";
       <div class="flex flex-col h-full">
         <h6 class="text-sm font-light m-0 text-gray-500">welcome</h6>
         <p class="m-0 font-light text-xl">
-          Hi, I'm <b class="font-bold">Gianmarco Cavallo</b>, a software
-          developer with strong focus on the user experience, animations and
-          micro interactions
+          Lectus elit platea pretium a. Rutrum orci quam sem penatibus.
+          Malesuada conubia donec porta venenatis. Litora ante porta ornare
+          cubilia.
         </p>
       </div>
       <div class="flex gap-4">
@@ -28,25 +27,13 @@ import Tooltip from "./Tooltip/index";
         <a aria-label="linkedin profile" href={LINKS.linkedin} target="_blank">
           <Button aria-label="linkedin profile">
             <Icon class="h-6" name="ri:linkedin-box-fill" />
-            <span class="sr-only">Linkedin Profile</span>
+            <span class="sr-only">LinkedIn Profile</span>
           </Button>
         </a>
-        <a aria-label="dribble profile" href={LINKS.dribble} target="_blank">
-          <Button aria-label="dribble profile">
-            <Icon class="h-6" name="ri:dribbble-fill" />
-            <span class="sr-only">Dribble Profile</span>
-          </Button>
-        </a>
-        <Tooltip client:visible>
-          <Button aria-label="easter egg btn">
-            <Icon class="h-6" name="ri:emotion-laugh-line" />
-            <span class="sr-only">Easter egg button</span>
-          </Button>
-        </Tooltip>
       </div>
     </div>
     <Image
-      alt="memoji of gianmarco"
+      alt="image of cameron"
       class="w-auto max-h-[300px] select-none absolute right-[-110px] bottom-[-20px] z-[-1] opacity-50 md:opacity-100 md:relative md:right-auto md:bottom-auto md:z-auto pointer-events-none"
       height="300"
       src="/me.webp"
