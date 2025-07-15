@@ -9,7 +9,7 @@ import { remarkReadingTime } from "./src/lib/remark-reading-time.mjs";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://gianmarcocavallo.com/",
+  site: "https://cturner8.dev",
   server: {
     host: "127.0.0.1",
   },
@@ -17,8 +17,8 @@ export default defineConfig({
     sitemap(),
     robotsTxt({
       sitemap: [
-        "https://gianmarcocavallo.com/sitemap-index.xml",
-        "https://gianmarcocavallo.com/sitemap-0.xml",
+        "https://cturner8.dev/sitemap-index.xml",
+        "https://cturner8.dev/sitemap-0.xml",
       ],
     }),
     solidJs(),
