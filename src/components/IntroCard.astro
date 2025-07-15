@@ -1,10 +1,10 @@
 ---
-import Card from "./Card/index.astro";
-import Button from "./Button.astro";
-import { LINKS } from "../lib/constants";
-import { Icon } from 'astro-icon/components'
-import Tooltip from "./Tooltip/index";
+import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
+import { LINKS } from "../lib/constants";
+import Button from "./Button.astro";
+import Card from "./Card/index.astro";
+import Tooltip from "./Tooltip/index";
 ---
 
 <Card colSpan="md:col-span-3" rowSpan="md:row-span-4">
@@ -46,7 +46,11 @@ import { Image } from "astro:assets";
       </div>
     </div>
     <Image
-      alt="memoji of gianmarco"       class="w-auto max-h-[300px] select-none absolute right-[-110px] bottom-[-20px] z-[-1] opacity-50 md:opacity-100 md:relative md:right-auto md:bottom-auto md:z-auto pointer-events-none"       height="300"       src="/me.webp"       width="300"
+      alt="memoji of gianmarco"
+      class="w-auto max-h-[300px] select-none absolute right-[-110px] bottom-[-20px] z-[-1] opacity-50 md:opacity-100 md:relative md:right-auto md:bottom-auto md:z-auto pointer-events-none"
+      height="300"
+      src="/me.webp"
+      width="300"
     />
   </div>
 </Card>
