@@ -1,62 +1,35 @@
-# ⚡️astro-bento-portfolio
-
-## A personal portfolio website made using `Astro`.
-
-![astro-bento-portfolio | Bento-like Personal Porfolio Template](public/preview.png)
-
-or my portfolio **[click here](https://gianmarcocavallo.com)**
-
-## Features
-
-- Modern and Minimal bento-like, sleek UI Design
-- All in one page (almost)
-- Fully Responsive
-- Performances and SEO optimizations
-- Blog
-- RSS support (your-domain/rss.xml)
-- Cool 3d globe
+# ⚡️Portfolio V2
 
 ## Tech Stack
 
 - [Astro](https://astro.build)
 - [unocss](https://unocss.dev/)
 - [motion](https://motion.dev/)
-- [d3](https://d3js.org/)
 
-# Steps ▶️
-
-```bash
-# Clone this repository
-$ git clone https://github.com/Ladvace/astro-bento-portfolio
-```
-
-```bash
-# Go into the repository
-$ cd astro-bento-portfolio
-```
+## Getting Started
 
 ```bash
 # Install dependencies
-$ pnpm install
-or
-$ npm install
+pnpm install
 ```
 
 ```bash
 # Start the project in development
-$ pnpm run dev
-or
-$ npm run dev
+pnpm dev
 ```
 
-# Be sure to replace the momoji and all the relative information, such as email, website and other info, if you don't your website is gonna point to my domain and to my info
+## Outstanding
 
-## REMOVE THE umami analytics script tag (or replace it with your id) in `src/layouts/Layout.astro`
-
-# Configuration
-
-remember to replace the `site` and other properties with your data in `astro.config.mjs`
-
-## Authors ❤️
-
-- Gianmarco - https://github.com/Ladvace
+- replace favicon
+- replace me.webp
+- replace og-image.png
+- content
+  - AboutMe.astro
+  - ContactsCard.astro
+  - IntroCard.astro
+  - MyStack.astro
+  - Now.astro?
+  - BasicLayout.astro
+  - index.astro
+  - blog/index.astro
+  - blog/id.astro
