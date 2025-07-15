@@ -3,8 +3,6 @@ import { getEntry, render } from "astro:content";
 import { getCollection } from "astro:content";
 import LayoutBlogPost from "../../layouts/LayoutBlogPost.astro";
 
-export const prerender = true;
-
 export async function getStaticPaths() {
   return (await getCollection("blog")).map(({ id }) => ({
     params: { id: id as string },
