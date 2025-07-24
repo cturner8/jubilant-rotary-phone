@@ -10,7 +10,6 @@ interface Props {
 }
 
 const { title, description, page, pubDate } = Astro.props;
-const image = `${Astro.url.origin}/og-image.png`;
 
 const schema =
   page !== "blog"
@@ -20,7 +19,6 @@ const schema =
         name: "Cameron",
         url: Astro.url.origin,
         sameAs: [LINKS.linkedin, LINKS.github],
-        image: `${Astro.url.origin}/og-image.png`,
         jobTitle: "Senior Software Engineer",
         nationality: {
           "@type": "Country",
@@ -36,7 +34,6 @@ const schema =
         },
         headline: title || title,
         description: description || title,
-        image: `${Astro.url.origin}/og-image.png`, //TODO: dynamic
         author: {
           "@type": "Person",
           name: "Cameron",
@@ -46,10 +43,6 @@ const schema =
         publisher: {
           "@type": "Organization",
           name: "Cameron",
-          logo: {
-            "@type": "ImageObject",
-            url: `${Astro.url.origin}/og-image.png`,
-          },
         },
         datePublished: pubDate || new Date().toISOString(),
         dateModified: pubDate || new Date().toISOString(),
@@ -72,18 +65,10 @@ const schema =
     <meta content={description} property="og:description" />
     <meta content="website" property="og:type" />
     <meta content={Astro.url.origin} property="og:url" />
-    <meta
-      content={image || `${Astro.url.origin}/og-image.png`}
-      property="og:image"
-    />
     <!-- Basic Twitter Card tags -->
     <meta content="summary_large_image" name="twitter:card" />
     <meta content={title} name="twitter:title" />
     <meta content={description} name="twitter:description" />
-    <meta
-      content={image || `${Astro.url.origin}/og-image.png`}
-      name="twitter:image"
-    />
 
     <link href="https://cdn.fontshare.com" rel="preconnect" />
     <link href={Astro.url.href} rel="canonical" />
