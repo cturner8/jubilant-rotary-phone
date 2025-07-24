@@ -8,8 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "eslint": "eslint 'src/**/*.{js,astro}'",
-    "check": "astro check"
+    "eslint": "eslint 'src' --max-warnings 0",
+    "check": "astro check --minimumFailingSeverity hint"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
