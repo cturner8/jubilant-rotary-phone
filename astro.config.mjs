@@ -10,6 +10,8 @@ import { remarkReadingTime } from "./src/lib/remark-reading-time.mjs";
 // https://astro.build/config
 export default defineConfig({
   site: "https://cturner8.dev",
+  // TODO: remove this once migrated into main repo
+  base: "/jubilant-rotary-phone",
   server: {
     host: "127.0.0.1",
   },
