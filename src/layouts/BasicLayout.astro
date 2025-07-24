@@ -4,43 +4,29 @@ import { LINKS } from "../lib/constants";
 interface Props {
   title: string;
   description: string;
-  page?: "travel" | "blog";
+  page?: "blog";
   slug?: string | undefined;
   pubDate?: string;
 }
 
 const { title, description, page, pubDate } = Astro.props;
-const image =
-  page === "travel"
-    ? `${Astro.url.origin}/globe_preview.webp"`
-    : `${Astro.url.origin}/og-image.png`;
 
 const schema =
   page !== "blog"
     ? {
-        "@context": "http://schema.org",
+        "@context": "https://schema.org",
         "@type": "Person",
-        name: "Gianmarco",
+        name: "Cameron",
         url: Astro.url.origin,
         sameAs: [LINKS.linkedin, LINKS.github],
-        image: `${Astro.url.origin}/og-image.png`,
-        jobTitle: "Freelance Frontend Developer",
-        worksFor: {
-          "@type": "Organization",
-          name: "Self-Employed",
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: "Italy",
-            addressCountry: "IT",
-          },
-        },
+        jobTitle: "Senior Software Engineer",
         nationality: {
           "@type": "Country",
-          name: "Italy",
+          name: "Scotland",
         },
       }
     : {
-        "@context": "http://schema.org",
+        "@context": "https://schema.org",
         "@type": "BlogPosting",
         mainEntityOfPage: {
           "@type": "WebPage",
@@ -48,20 +34,15 @@ const schema =
         },
         headline: title || title,
         description: description || title,
-        image: `${Astro.url.origin}/og-image.png`, //TODO: dynamic
         author: {
           "@type": "Person",
-          name: "Gianmarco",
+          name: "Cameron",
           url: Astro.url.origin,
           sameAs: [LINKS.linkedin, LINKS.github],
         },
         publisher: {
           "@type": "Organization",
-          name: "Gianmarco",
-          logo: {
-            "@type": "ImageObject",
-            url: `${Astro.url.origin}/og-image.png`,
-          },
+          name: "Cameron",
         },
         datePublished: pubDate || new Date().toISOString(),
         dateModified: pubDate || new Date().toISOString(),
@@ -73,7 +54,8 @@ const schema =
   <head>
     <meta charset="UTF-8" />
     <meta content="width=device-width" name="viewport" />
-    <link href="/favicon.ico" rel="icon" type="image/x-icon" />
+    <!-- TODO: replace with local favicon -->
+    <link href="https://fav.farm/🏴󠁧󠁢󠁳󠁣󠁴󠁿" rel="icon" />
     <meta content={Astro.generator} name="generator" />
     <title>{title}</title>
     <meta content={description} name="description" />
@@ -83,18 +65,10 @@ const schema =
     <meta content={description} property="og:description" />
     <meta content="website" property="og:type" />
     <meta content={Astro.url.origin} property="og:url" />
-    <meta
-      content={image || `${Astro.url.origin}/og-image.png`}
-      property="og:image"
-    />
     <!-- Basic Twitter Card tags -->
     <meta content="summary_large_image" name="twitter:card" />
     <meta content={title} name="twitter:title" />
     <meta content={description} name="twitter:description" />
-    <meta
-      content={image || `${Astro.url.origin}/og-image.png`}
-      name="twitter:image"
-    />
 
     <link href="https://cdn.fontshare.com" rel="preconnect" />
     <link href={Astro.url.href} rel="canonical" />

@@ -1,10 +1,8 @@
 export const LINKS = {
-  github: "https://github.com/Ladvace",
-  linkedin: "https://www.linkedin.com/in/gianmarco-cavallo/",
-  medium: "https://ladvace.medium.com/",
-  discord: "https://discordapp.com/users/163300027618295808",
-  dribble: "https://dribbble.com/Ladvace_Jace",
-  email: "contact@gianmarcocavallo.com<",
+  // TODO: update links to domain based redirects
+  github: "https://github.com/cturner8",
+  linkedin: "https://www.linkedin.com/in/cameronturner4/",
+  email: "hello@cturner8.dev",
 };
 
 export const loaderAnimation = [

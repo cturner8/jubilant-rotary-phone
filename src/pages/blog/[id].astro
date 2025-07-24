@@ -1,13 +1,11 @@
 ---
-import { getEntry, render } from "astro:content";
-import { getCollection } from "astro:content";
+import { getCollection, getEntry, render } from "astro:content";
 import LayoutBlogPost from "../../layouts/LayoutBlogPost.astro";
 
-export const prerender = true;
-
 export async function getStaticPaths() {
-  return (await getCollection("blog")).map(({ id }) => ({
-    params: { id: id as string },
+  const posts = await getCollection("blog");
+  return posts.map(({ id }) => ({
+    params: { id },
   }));
 }
 
@@ -27,7 +25,11 @@ const { Content, remarkPluginFrontmatter } = await render(entry);
 ---
 
 <LayoutBlogPost
-  description={entry.data.description!}   minutesRead={remarkPluginFrontmatter.minutesRead}   pubDate={entry.data.pubDate!}   title={`${entry.data.title} | Gianmarco Cavallo`}   url={`blog/${entry.id}`}
+  description={entry.data.description!}
+  minutesRead={remarkPluginFrontmatter.minutesRead}
+  pubDate={entry.data.pubDate || new Date()}
+  title={`${entry.data.title} | Cameron Turner`}
+  url={`blog/${entry.id}`}
 >
   <Content />
 </LayoutBlogPost>
