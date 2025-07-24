@@ -3,17 +3,13 @@ import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import PostRow from "../../components/Blog/PostRow.astro";
 
-const posts = await getCollection("blog");
-const sortedPosts = posts.sort(
-  (a, b) =>
-    (b.data.pubDate || new Date()).getTime() -
-    (a.data.pubDate || new Date()).getTime()
-);
+const projects = await getCollection("projects");
+const sortedProjects = projects.sort((a, b) => a.data.order - b.data.order);
 ---
 
 <script>
   import { animate, type AnimationSequence } from "motion";
-  import { loaderAnimation } from "../../lib/constants";
+import { loaderAnimation } from "../../lib/constants";
 
   const sequence = [loaderAnimation];
 
@@ -31,14 +27,14 @@ const sortedPosts = posts.sort(
       class="text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 mb-8 border-1 border-solid border-neutral-600 rounded-lg"
       href="/">Back</a
     >
-    <h1 class="text-4xl font-bold mb-4 text-neutral-100">Posts</h1>
+    <h1 class="text-4xl font-bold mb-4 text-neutral-100">Projects</h1>
     <ul class="w-full">
       {
-        sortedPosts.map((post) => (
+        sortedProjects.map((project) => (
           <PostRow
-            date={post.data.pubDate || new Date()}
-            id={post.id}
-            title={post.data.title || "No title"}
+            date={new Date()}
+            id={project.id}
+            title={project.data.title || "No title"}
           />
         ))
       }
