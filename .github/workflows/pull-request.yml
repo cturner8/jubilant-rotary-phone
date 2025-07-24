@@ -1,6 +1,7 @@
 name: Verify Pull Request
 
 on:
+  merge_group: {}
   pull_request:
     types: [ready_for_review]
     branches:
