@@ -34,3 +34,4 @@ pnpm dev
   - index.astro
   - blog/index.astro
   - blog/id.astro
+- remove base once migrated to main repo
