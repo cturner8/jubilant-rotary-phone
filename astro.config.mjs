@@ -12,6 +12,7 @@ export default defineConfig({
   site: "https://cturner8.dev",
   // TODO: remove this once migrated into main repo
   base: "/jubilant-rotary-phone",
+  trailingSlash: "never",
   server: {
     host: "127.0.0.1",
   },
