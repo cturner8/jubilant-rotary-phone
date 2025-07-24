@@ -1,8 +1,8 @@
-import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
-import robotsTxt from "astro-robots-txt";
 import UnoCSS from "@unocss/astro";
 import icon from "astro-icon";
+import robotsTxt from "astro-robots-txt";
+import { defineConfig } from "astro/config";
 
 import solidJs from "@astrojs/solid-js";
 import { remarkReadingTime } from "./src/lib/remark-reading-time.mjs";
@@ -15,12 +15,7 @@ export default defineConfig({
   },
   integrations: [
     sitemap(),
-    robotsTxt({
-      sitemap: [
-        "https://cturner8.dev/sitemap-index.xml",
-        "https://cturner8.dev/sitemap-0.xml",
-      ],
-    }),
+    robotsTxt(),
     solidJs(),
     UnoCSS({ injectReset: true }),
     icon(),

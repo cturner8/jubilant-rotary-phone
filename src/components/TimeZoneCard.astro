@@ -9,7 +9,7 @@ import Card from "./Card/index.astro";
 
   let interval: ReturnType<typeof setInterval>;
 
-  function updateClock() {
+  const updateClock = () => {
     const timeDisplay = document.getElementById("timeDisplay");
     const now = new Date();
 
@@ -17,7 +17,7 @@ import Card from "./Card/index.astro";
       timeDisplay.textContent = formatTime(now);
       timeDisplay.setAttribute("datetime", now.toISOString());
     }
-  }
+  };
 
   onMount(() => {
     interval = setInterval(updateClock, 1000);

@@ -3,8 +3,9 @@ import { getCollection, getEntry, render } from "astro:content";
 import LayoutBlogPost from "../../layouts/LayoutBlogPost.astro";
 
 export async function getStaticPaths() {
-  return (await getCollection("blog")).map(({ id }) => ({
-    params: { id: id as string },
+  const posts = await getCollection("blog");
+  return posts.map(({ id }) => ({
+    params: { id },
   }));
 }
 
@@ -26,7 +27,7 @@ const { Content, remarkPluginFrontmatter } = await render(entry);
 <LayoutBlogPost
   description={entry.data.description!}
   minutesRead={remarkPluginFrontmatter.minutesRead}
-  pubDate={entry.data.pubDate!}
+  pubDate={entry.data.pubDate || new Date()}
   title={`${entry.data.title} | Cameron Turner`}
   url={`blog/${entry.id}`}
 >

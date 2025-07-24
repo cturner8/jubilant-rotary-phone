@@ -3,10 +3,11 @@ import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import PostRow from "../../components/Blog/PostRow.astro";
 
-const posts = (await getCollection("blog"))?.sort(
-  (blogEntryA, blogEntryB) =>
-    (blogEntryB.data.pubDate || new Date()).getTime() -
-    (blogEntryA.data.pubDate || new Date()).getTime()
+const posts = await getCollection("blog");
+const sortedPosts = posts.sort(
+  (a, b) =>
+    (b.data.pubDate || new Date()).getTime() -
+    (a.data.pubDate || new Date()).getTime()
 );
 ---
 
@@ -33,7 +34,7 @@ const posts = (await getCollection("blog"))?.sort(
     <h1 class="text-4xl font-bold mb-4 text-neutral-100">Posts</h1>
     <ul class="w-full">
       {
-        posts?.map((post) => (
+        sortedPosts.map((post) => (
           <PostRow
             date={post.data.pubDate || new Date()}
             id={post.id}
