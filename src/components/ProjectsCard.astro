@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content";
+import { formatDate } from "../lib/helpers";
+import Card from "./Card/index.astro";
+
+const posts = await getCollection("blog");
+const sortedPosts = posts.sort(
+  (a, b) =>
+    (b.data.pubDate || new Date()).getTime() -
+    (a.data.pubDate || new Date()).getTime()
+);
+---
+
+<Card
+  colSpan="md:col-span-1"
+  href="/blog"
+  rowSpan="md:row-span-2 flex gap-1"
+  title="Blog"
+>
+  <div class="flex flex-col gap-1">
+    {
+      sortedPosts.slice(0, 3).map((post) => (
+        <div class="list-none w-full text-neutral-100 hover:text-neutral-400 ease-in-out transition-colors border-b-neutral-400 border-dashed border-b-1 my-0">
+          <p class="inline-block whitespace-nowrap text-xs">
+            {post.data.title}
+          </p>
+          {post.data.pubDate ? (
+            <time
+              class="text-right tabular-nums text-xs"
+              data-date={post.data.pubDate.toISOString()}
+              datetime={post.data.pubDate.toISOString()}
+            >
+              {formatDate(post.data.pubDate)}
+            </time>
+          ) : null}
+        </div>
+      ))
+    }
+  </div>
+</Card>
