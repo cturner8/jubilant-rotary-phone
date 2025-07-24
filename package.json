@@ -8,7 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "eslint": "eslint 'src/**/*.{js,astro}'",
+    "eslint": "eslint 'src'",
     "check": "astro check"
   },
   "dependencies": {
