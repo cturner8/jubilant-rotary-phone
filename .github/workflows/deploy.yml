@@ -3,6 +3,14 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+    paths:
+      - "public/**"
+      - "src/**"
+      - "astro.config.mjs"
+      - "pnpm-lock.yaml"
+      - "postcss.config.cjs"
+      - "tsconfig.json"
+      - "uno.config.ts"
   workflow_dispatch: {}
 
 permissions:
