@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import Card from "./Card/index.astro";
+
+const projects = await getCollection("projects");
+const featuredProjects = projects.filter((project) => project.data.featured);
+const sortedProjects = featuredProjects
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 3);
+---
+
+<Card
+  colSpan="md:col-span-1"
+  href="/projects"
+  rowSpan="md:row-span-2 flex gap-1"
+  title="Top Projects"
+>
+  <div class="flex flex-col gap-1">
+    {
+      sortedProjects.map((project) => (
+        <div class="list-none w-full text-neutral-100 hover:text-neutral-400 ease-in-out transition-colors border-b-neutral-400 border-dashed border-b-1 my-0">
+          <p class="inline-block whitespace-nowrap text-xs">
+            {project.data.title}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</Card>

@@ -3,8 +3,8 @@ import { getCollection, getEntry, render } from "astro:content";
 import LayoutBlogPost from "../../layouts/LayoutBlogPost.astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-  return posts.map(({ id }) => ({
+  const projects = await getCollection("projects");
+  return projects.map(({ id }) => ({
     params: { id },
   }));
 }
@@ -15,7 +15,7 @@ if (!id) {
   throw new Error("id is missing");
 }
 
-const entry = await getEntry("blog", id);
+const entry = await getEntry("projects", id);
 
 if (!entry) {
   return Astro.redirect("/404");
@@ -25,11 +25,11 @@ const { Content, remarkPluginFrontmatter } = await render(entry);
 ---
 
 <LayoutBlogPost
-  description={entry.data.description!}
+  description={entry.data.description}
   minutesRead={remarkPluginFrontmatter.minutesRead}
-  pubDate={entry.data.pubDate || new Date()}
+  pubDate={new Date()}
   title={`${entry.data.title} | Cameron Turner`}
-  url={`blog/${entry.id}`}
+  url={`projects/${entry.id}`}
 >
   <Content />
 </LayoutBlogPost>
