@@ -6,7 +6,7 @@ on:
     paths:
       - "public/**"
       - "src/**"
-      - "astro.config.mjs"
+      - "astro.config.mts"
       - "pnpm-lock.yaml"
       - "postcss.config.cjs"
       - "tsconfig.json"
@@ -22,13 +22,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
+      - name: Checkout repository
         uses: actions/checkout@v4.2.2
       - name: Install, build, and upload your site output
         uses: withastro/action@v4.0.0
         with:
           node-version: 22
           package-manager: pnpm@latest
+        env:
+          ASTRO_SITE: "preview.cturner8.dev"
 
   deploy:
     needs: build
